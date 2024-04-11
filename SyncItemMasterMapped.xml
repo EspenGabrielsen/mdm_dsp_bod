@@ -186,13 +186,13 @@
                 <AlternateUOMCode>{{ thgTradeItemUnit }}</AlternateUOMCode>
                 <AlternateUOMCode>{{ thgTradeItemUnit }}</AlternateUOMCode>
                 <AlternateUOM>
-                    <UOMCode>{{ thgTradeItemUnit }</UOMCode>
+                    <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
                     <UOMPrecision>0.001</UOMPrecision>
                 </AlternateUOM>
                 <AlternateUOM>
                     <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
                     <UOMPrecision>0.001</UOMPrecision>
-                </AlternateUOM>
+                </AlternateUOM> // this is repeating per packingunit sent from MDM, the part below is details for each packingunit listed
                 <UOMCodeConversion>
                     <FromUOMPackage>
                         <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
@@ -238,9 +238,9 @@
                 <SellableIndicator>true</SellableIndicator> // ignore, logic tbd
                 <PackagingUnit>
                     <UnitCode>{{ thgItemBasicUnit }}</UnitCode>
-                    <NetWeightMeasure unitCode="KG">{{thgWeightOfPackaging}}</NetWeightMeasure>
-                    <GrossWeightMeasure unitCode="KG">{{thgWeightOfPackaging}}</GrossWeightMeasure>
-                    <TotalVolumeMeasure unitCode="M3">{{thgCurrentVolumeFactor}}</TotalVolumeMeasure>
+                    <NetWeightMeasure unitCode="KG">{{ thgWeightOfPackaging }}</NetWeightMeasure>
+                    <GrossWeightMeasure unitCode="KG">{{ thgWeightOfPackaging }}</GrossWeightMeasure>
+                    <TotalVolumeMeasure unitCode="M3">{{ thgCurrentVolumeFactor }}</TotalVolumeMeasure>
                 </PackagingUnit>
                 <ProcurementParameters>
                     <ProcurementMethodCode>Purchase</ProcurementMethodCode>
