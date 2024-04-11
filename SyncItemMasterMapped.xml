@@ -36,7 +36,7 @@
                 </ItemID>
                 <ItemID> /// ignore this
                     <ID schemeName="Supplier" schemeAgencyID="GMLOPT" accountingEntity="100"
-                        variationID="2863069" lid="lid://infor.m3.m3">7656938</ID>
+                        variationID="2863069" lid="lid://infor.m3.m3">{{ thgSupplierItemNumber }}</ID>
                     <RevisionID>1</RevisionID>
                 </ItemID>
                 <DisplayID>
