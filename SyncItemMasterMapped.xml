@@ -1,0 +1,293 @@
+<SyncItemMaster xmlns="http://schema.infor.com/InforOAGIS/2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schema.infor.com/InforOAGIS/2 http://schema.infor.com/2.14.x/InforOAGIS/BODs/SyncItemMaster.xsd"
+    releaseID="9.2" versionID="2.14.6" systemEnvironmentCode="Production" languageCode="GB">
+    <ApplicationArea> // should be ignored?
+        <Sender>
+            <LogicalID schemeVersionID="16.0.0.073">lid://infor.m3.m3</LogicalID>
+            <ComponentID schemeVersionID="16.0.0.20240116163623.5">M3BE</ComponentID>
+            <ConfirmationCode>OnError</ConfirmationCode>
+        </Sender>
+        <CreationDateTime>2024-03-11T03:16:40.627Z</CreationDateTime>
+        <BODID>4811a30b-031f-4aa7-ad9c-945d47b2a6a9</BODID>
+    </ApplicationArea>
+    <DataArea>
+        <Sync>
+            <AccountingEntityID>100</AccountingEntityID>
+            <LocationID>183</LocationID>
+            <ActionCriteria>
+                <ActionExpression actionCode="Replace" />
+            </ActionCriteria>
+        </Sync>
+        <ItemMaster>
+            <ItemMasterHeader>
+                <ItemID>
+                    <ID accountingEntity="100" variationID="2863069" lid="lid://infor.m3.m3">
+                        {{ thgSGDNArticleNumber }}
+                    </ID>
+                    <RevisionID>1</RevisionID>
+                </ItemID>
+                <ItemID> 
+                    <ID schemeName="Supplier" schemeAgencyID="{{ thgSGDNMainSupplierNumber }}" accountingEntity="100"
+                        variationID="2863069" lid="lid://infor.m3.m3">
+                        {{ thgSupplierItemNumber }}
+                    </ID>
+                    <RevisionID>1</RevisionID>
+                </ItemID>
+                <ItemID> /// ignore this
+                    <ID schemeName="Supplier" schemeAgencyID="GMLOPT" accountingEntity="100"
+                        variationID="2863069" lid="lid://infor.m3.m3">7656938</ID>
+                    <RevisionID>1</RevisionID>
+                </ItemID>
+                <DisplayID>
+                    if thgItemNumberOPT is present, use that value, if not use thgSGDNArticleNumber value
+                </DisplayID> 
+                <GTIN>{{ thgTradeItemGTIN }}</GTIN>
+                // other tradeItems need to be appended here, we probably need to build state?? 
+                <GTIN>7340102207390</GTIN>
+                <LastModificationPerson>
+                    <IDs>
+                        <ID accountingEntity="100">PART0953</ID> // how do we get the SGID of the person that initiated the change?
+                    </IDs>
+                </LastModificationPerson>
+                <ServiceIndicator>false</ServiceIndicator> // ignore
+                <Description>{{ thgItemExtendedName }}</Description>
+                <Description type="ShortName">{{ thgItemName }}</Description>
+                <Classification>
+                    <Codes>
+                        <Code listID="Popular Number">{{ thgNOBBArticleNumber }}</Code>
+                    </Codes>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Item Groups">{{ thgNOBBHierarchyItemGroupNumber }}</Code>
+                    </Codes>
+                    <Description>{{ thgNOBBHierarchyItemGroupName }}</Description>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Product Groups">{{ thgNOBBHierarchyMainGroupNumber }}</Code>
+                    </Codes>
+                    <Description>{{ thgNOBBHierarchyMainGroupName }}</Description>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Business Sectors">{{ thgNOBBHierarchySuperGroupNumber }}</Code>
+                    </Codes>
+                    <Description>{{ thgNOBBHierarchySuperGroupName }}</Description>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Item Types">{{ thgArticleType }}</Code>
+                    </Codes>
+                    <Description>SGDN STANDARD VARE</Description> // Try not setting the description, if it does not work, then we need to get the name of the article type from the refArticleType reference table. 
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Item Classes">0</Code>
+                    </Codes> //unknown EspenG
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Configuration Code">0</Code>
+                    </Codes> //always 0 espenG
+                    <Description>Item is not configured</Description>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Item Hierarchy">{{ thgNOBBHierarchyMainGroupNumber }}</Code>
+                    </Codes>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="2" listID="Item Hierarchy">{{ thgNOBBHierarchySuperGroupNumber }}</Code>
+                    </Codes>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="3" listID="Item Hierarchy">{{ thgNOBBHierarchyItemGroupNumber }}</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // review with Greibesland.
+                    <Codes>
+                        <Code sequence="1" listID="Accounting Control Object">01</Code>
+                    </Codes> //Not currently in MDM master dictionary checking EspenG
+                    <Description>KKO ikke definert</Description>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Search Group">{{ thgItemDiscountGroupOPT }}</Code> // if thgItemDiscountGroupOPT does not exist, dont add
+                        <Code sequence="2" listID="Search Group">{{ thgItemDiscountGroupFK }}</Code> // if thgItemDiscountGroupOPT does not exist, dont add
+                        <Code sequence="3" listID="Search Group">{{ thgItemDiscountGroupBD }}</Code> // if thgItemDiscountGroupOPT does not exist, dont add
+                    </Codes>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Number of Price Decimal Places">2</Code> // review with Greibesland // does not exist in MDM, will set as two until it is added to MDM // can be hardcoded 2
+                    </Codes>
+                </Classification>
+                <Classification>
+                    <Codes>
+                        <Code sequence="1" listID="Sales Price">{{ thgPriceIndex }}</Code> 
+                    </Codes>
+                </Classification>
+                <Classification> // review with Greibesland, does not exist in mdm //not in use EspenG
+                    <Codes>
+                        <Code sequence="1" listID="Lot Control Method">Not used</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // review with Greibesland, does not exist in mdm
+                    <Codes>
+                        <Code sequence="1" listID="Lot Numbering Method">Manual entry</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // review with Greibesland, does not exist in mdm, can set to "normal item" always
+                    <Codes>
+                        <Code sequence="1" listID="Active or Catch Weight Item">Normal item</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Expiration Date Method">No expiry date</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Sublot Controlled">false</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Attribute Managed">No</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Exchangeable">No</Code>
+                    </Codes>
+                </Classification>
+                <Classification> // ignore
+                    <Codes>
+                        <Code sequence="1" listID="Inspection Code">false</Code>
+                    </Codes>    // ignore
+                </Classification>
+                <HazardousMaterialIndicator>false</HazardousMaterialIndicator> // ignore, set automatically
+                <TrackingIndicator>true</TrackingIndicator> // ignore
+                <ItemStatus> // ignore set by m3
+                    <Code>Open</Code>
+                    <Description>Released Item</Description>
+                </ItemStatus>
+                <BaseUOMCode>{{ thgItemBasicUnit }}</BaseUOMCode> 
+                <BaseUOMPrecision>0.001</BaseUOMPrecision> // hardcoded - verify with Greibesland (3 desimaler?)
+                <StorageUOMCode>{{ thgItemBasicUnit }}</StorageUOMCode>
+                <SalesUOMCode>{{ thgItemSalesOrderUnit }}</SalesUOMCode>
+                <SalesPriceUOMCode>{{ thgSalesPriceUnit }}</SalesPriceUOMCode>
+                <LastModificationDateTime>2024-03-11T03:14:33.778Z</LastModificationDateTime> // set by DSP
+                <AlternateUOMCode>{{ thgTradeItemUnit }}</AlternateUOMCode>
+                <AlternateUOMCode>{{ thgTradeItemUnit }}</AlternateUOMCode>
+                <AlternateUOM>
+                    <UOMCode>{{ thgTradeItemUnit }</UOMCode>
+                    <UOMPrecision>0.001</UOMPrecision>
+                </AlternateUOM>
+                <AlternateUOM>
+                    <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
+                    <UOMPrecision>0.001</UOMPrecision>
+                </AlternateUOM>
+                <UOMCodeConversion>
+                    <FromUOMPackage>
+                        <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
+                    </FromUOMPackage>
+                    <RateNumeric>{{ thgM3PackagesCount }}</RateNumeric>
+                    <ToUOMPackage>
+                        <UOMCode>{{thgTradeItemUnit}}</UOMCode>
+                    </ToUOMPackage>
+                </UOMCodeConversion>
+                <UOMCodeConversion>
+                    <FromUOMPackage>
+                        <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
+                    </FromUOMPackage>
+                    <RateNumeric>{{ thgM3PackagesCount }}</RateNumeric>
+                    <ToUOMPackage>
+                        <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
+                    </ToUOMPackage>
+                </UOMCodeConversion>
+                <SerialControlIndicator>false</SerialControlIndicator> // ignore, set by M3
+                <LotControlIndicator>false</LotControlIndicator> // ignore, set by M3
+                <ConfiguredItemIndicator>false</ConfiguredItemIndicator> // ignore, set by M3
+                <CatchWeightIndicator>false</CatchWeightIndicator> // ignore, set by M3
+                <UserArea>
+                    <Property>
+                        <NameValue name="ItemFreeField1">{{ thgNOBBModuleNumber }}</NameValue>
+                    </Property>
+                    <Property>
+                        <NameValue name="ItemFreeField2">0.00</NameValue> // ignore
+                    </Property>
+                    <Property>
+                        <NameValue name="ItemFreeField3">0</NameValue> // No longer FK Påslagsgruppe, Check new meaning with Erik
+                    </Property>
+                    <Property>
+                        <NameValue name="ItemFreeField4">{{ thgBrand }} </NameValue>
+                    </Property>
+                    <Property>
+                        <NameValue name="ItemFreeField5"> </NameValue> // certificate BD, does not exist in MDM Check with Keneth Hegre
+                    </Property>
+                    <Property>
+                        <NameValue name="eam.InspectionRequiredIndicator">false</NameValue> // ignore
+                    </Property>
+                </UserArea>
+                <SellableIndicator>true</SellableIndicator> // ignore, logic tbd
+                <PackagingUnit>
+                    <UnitCode>{{ thgItemBasicUnit }}</UnitCode>
+                    <NetWeightMeasure unitCode="KG">{{thgWeightOfPackaging}}</NetWeightMeasure>
+                    <GrossWeightMeasure unitCode="KG">{{thgWeightOfPackaging}}</GrossWeightMeasure>
+                    <TotalVolumeMeasure unitCode="M3">{{thgCurrentVolumeFactor}}</TotalVolumeMeasure>
+                </PackagingUnit>
+                <ProcurementParameters>
+                    <ProcurementMethodCode>Purchase</ProcurementMethodCode>
+                </ProcurementParameters>
+                <SupplierItemSpecifics>
+                    <SupplierParty>
+                        <PartyIDs>
+                            <ID accountingEntity="100">100074</ID>
+                        </PartyIDs>
+                    </SupplierParty>
+                    <UserArea>
+                        <Property>
+                            <NameValue name="SupplierItemConnectIndicator">false</NameValue>
+                        </Property>
+                    </UserArea>
+                </SupplierItemSpecifics>
+                <SupplierItemSpecifics>
+                    <SupplierParty>
+                        <PartyIDs>
+                            <ID accountingEntity="100">100074</ID>
+                        </PartyIDs>
+                    </SupplierParty>
+                    <UserArea>
+                        <Property>
+                            <NameValue name="UserDefinedNumeric1">0</NameValue>
+                        </Property>
+                        <Property>
+                            <NameValue name="SupplierItemConnectIndicator">true</NameValue>
+                        </Property>
+                    </UserArea>
+                </SupplierItemSpecifics>
+                <SupplierItemSpecifics>
+                    <SupplierParty>
+                        <PartyIDs>
+                            <ID accountingEntity="100">GMLOPT</ID>
+                        </PartyIDs>
+                    </SupplierParty>
+                    <UserArea>
+                        <Property>
+                            <NameValue name="UserDefinedNumeric1">0</NameValue>
+                        </Property>
+                        <Property>
+                            <NameValue name="SupplierItemConnectIndicator">true</NameValue>
+                        </Property>
+                    </UserArea>
+                </SupplierItemSpecifics>
+            </ItemMasterHeader>
+        </ItemMaster>
+    </DataArea>
+</SyncItemMaster>
