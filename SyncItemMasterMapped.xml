@@ -42,8 +42,7 @@
                 <DisplayID>
                     if thgItemNumberOPT is present, use that value, if not use thgSGDNArticleNumber value
                 </DisplayID> 
-                <GTIN>{{ thgTradeItemGTIN }}</GTIN>
-                // other tradeItems need to be appended here, we probably need to build state?? 
+                <GTIN>{{ thgTradeItemGTIN }}</GTIN> // other tradeItems need to be appended here, we probably need to build state?? 
                 <GTIN>7340102207390</GTIN>
                 <LastModificationPerson>
                     <IDs>
@@ -108,13 +107,13 @@
                         <Code sequence="3" listID="Item Hierarchy">{{ thgNOBBHierarchyItemGroupNumber }}</Code>
                     </Codes>
                 </Classification>
-                <Classification> // review with Greibesland.
+                <Classification> // review with Greibesland
                     <Codes>
                         <Code sequence="1" listID="Accounting Control Object">01</Code>
                     </Codes> //Not currently in MDM master dictionary checking EspenG
                     <Description>KKO ikke definert</Description>
                 </Classification>
-                <Classification>
+                <Classification> // Rabattgruppe
                     <Codes>
                         <Code sequence="1" listID="Search Group">{{ thgItemDiscountGroupOPT }}</Code> // if thgItemDiscountGroupOPT does not exist, dont add
                         <Code sequence="2" listID="Search Group">{{ thgItemDiscountGroupFK }}</Code> // if thgItemDiscountGroupOPT does not exist, dont add
@@ -229,7 +228,7 @@
                         <NameValue name="ItemFreeField4">{{ thgBrand }} </NameValue>
                     </Property>
                     <Property>
-                        <NameValue name="ItemFreeField5"> </NameValue> // certificate BD, does not exist in MDM Check with Keneth Hegre
+                        <NameValue name="ItemFreeField5"> </NameValue> // ignore given by MAL artikkel
                     </Property>
                     <Property>
                         <NameValue name="eam.InspectionRequiredIndicator">false</NameValue> // ignore
