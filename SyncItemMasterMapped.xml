@@ -53,30 +53,30 @@
                 <ServiceIndicator>false</ServiceIndicator> // ignore
                 <Description>{{ thgItemExtendedName }}</Description>
                 <Description type="ShortName">{{ thgItemName }}</Description>
-                <Classification>
+                <Classification> // NOBB nr
                     <Codes>
                         <Code listID="Popular Number">{{ thgNOBBArticleNumber }}</Code>
                     </Codes>
-                </Classification>
-                <Classification>
+                </Classification> 
+                <Classification> // Varegruppenummer
                     <Codes>
                         <Code sequence="1" listID="Item Groups">{{ thgNOBBHierarchyItemGroupNumber }}</Code>
                     </Codes>
                     <Description>{{ thgNOBBHierarchyItemGroupName }}</Description>
                 </Classification>
-                <Classification>
+                <Classification> // Hovedgruppenavn
                     <Codes>
                         <Code sequence="1" listID="Product Groups">{{ thgNOBBHierarchyMainGroupNumber }}</Code>
                     </Codes>
                     <Description>{{ thgNOBBHierarchyMainGroupName }}</Description>
                 </Classification>
-                <Classification>
+                <Classification> // overgruppe
                     <Codes>
                         <Code sequence="1" listID="Business Sectors">{{ thgNOBBHierarchySuperGroupNumber }}</Code>
                     </Codes>
                     <Description>{{ thgNOBBHierarchySuperGroupName }}</Description>
                 </Classification>
-                <Classification>
+                <Classification> // review with Greibseland
                     <Codes>
                         <Code sequence="1" listID="Item Types">{{ thgArticleType }}</Code>
                     </Codes>
@@ -85,25 +85,25 @@
                 <Classification> // ignore
                     <Codes>
                         <Code sequence="1" listID="Item Classes">0</Code>
-                    </Codes> //unknown EspenG
+                    </Codes> 
                 </Classification>
                 <Classification> // ignore
                     <Codes>
                         <Code sequence="1" listID="Configuration Code">0</Code>
-                    </Codes> //always 0 espenG
+                    </Codes> 
                     <Description>Item is not configured</Description>
                 </Classification>
-                <Classification>
+                <Classification> // hovedgruppe number
                     <Codes>
                         <Code sequence="1" listID="Item Hierarchy">{{ thgNOBBHierarchyMainGroupNumber }}</Code>
                     </Codes>
                 </Classification>
-                <Classification>
+                <Classification> // overgruppe number
                     <Codes>
                         <Code sequence="2" listID="Item Hierarchy">{{ thgNOBBHierarchySuperGroupNumber }}</Code>
                     </Codes>
                 </Classification>
-                <Classification>
+                <Classification> // varegruppe number
                     <Codes>
                         <Code sequence="3" listID="Item Hierarchy">{{ thgNOBBHierarchyItemGroupNumber }}</Code>
                     </Codes>
@@ -121,24 +121,24 @@
                         <Code sequence="3" listID="Search Group">{{ thgItemDiscountGroupBD }}</Code> // if thgItemDiscountGroupOPT does not exist, dont add
                     </Codes>
                 </Classification>
-                <Classification>
+                <Classification> // review with Greibesland
                     <Codes>
-                        <Code sequence="1" listID="Number of Price Decimal Places">2</Code> // review with Greibesland // does not exist in MDM, will set as two until it is added to MDM // can be hardcoded 2
+                        <Code sequence="1" listID="Number of Price Decimal Places">2</Code>  // does not exist in MDM, will set as two until it is added to MDM // can be hardcoded 2
                     </Codes>
                 </Classification>
-                <Classification>
+                <Classification> // review with Greibesland
                     <Codes>
                         <Code sequence="1" listID="Sales Price">{{ thgPriceIndex }}</Code> 
                     </Codes>
                 </Classification>
-                <Classification> // review with Greibesland, does not exist in mdm //not in use EspenG
+                <Classification> // review with Greibesland, does not exist in mdm 
                     <Codes>
-                        <Code sequence="1" listID="Lot Control Method">Not used</Code>
+                        <Code sequence="1" listID="Lot Control Method">Not used</Code> // used by FK? EspenG
                     </Codes>
                 </Classification>
                 <Classification> // review with Greibesland, does not exist in mdm
                     <Codes>
-                        <Code sequence="1" listID="Lot Numbering Method">Manual entry</Code>
+                        <Code sequence="1" listID="Lot Numbering Method">Manual entry</Code> // used by FK? EspenG
                     </Codes>
                 </Classification>
                 <Classification> // review with Greibesland, does not exist in mdm, can set to "normal item" always
