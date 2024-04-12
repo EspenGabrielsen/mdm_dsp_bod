@@ -235,7 +235,7 @@
                         <NameValue name="eam.InspectionRequiredIndicator">false</NameValue> // ignore
                     </Property>
                 </UserArea>
-                <SellableIndicator>true</SellableIndicator> // ignore, logic tbd
+                <SellableIndicator>{{ thgItemSalesItemM3 }}</SellableIndicator> // This is part of MDM Espen G // ignore, logic tbd
                 <PackagingUnit>
                     <UnitCode>{{ thgItemBasicUnit }}</UnitCode>
                     <NetWeightMeasure unitCode="KG">{{ thgWeightOfPackaging }}</NetWeightMeasure>
