@@ -185,15 +185,15 @@
                 <LastModificationDateTime>2024-03-11T03:14:33.778Z</LastModificationDateTime> // set by DSP
                 <AlternateUOMCode>{{ thgTradeItemUnit }}</AlternateUOMCode>
                 <AlternateUOMCode>{{ thgTradeItemUnit }}</AlternateUOMCode>
-                <AlternateUOM>
+                <AlternateUOM> // one for each alternate unit, how to handle sales price unit?
                     <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
                     <UOMPrecision>0.001</UOMPrecision>
                 </AlternateUOM>
                 <AlternateUOM>
                     <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
                     <UOMPrecision>0.001</UOMPrecision>
-                </AlternateUOM> // this is repeating per packingunit sent from MDM, the part below is details for each packingunit listed
-                <UOMCodeConversion>
+                </AlternateUOM> 
+                <UOMCodeConversion> // data for alternate unites
                     <FromUOMPackage>
                         <UOMCode>{{ thgTradeItemUnit }}</UOMCode>
                     </FromUOMPackage>
